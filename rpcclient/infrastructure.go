@@ -975,6 +975,7 @@ func (c *Client) sendCmd(cmd interface{}) chan *response {
 	if err != nil {
 		return newFutureError(err)
 	}
+        fmt.Println("BTC Method ->", method)
 
 	// Marshal the command.
 	id := c.NextID()
