@@ -983,8 +983,6 @@ func (c *Client) sendCmd(cmd interface{}) chan *response {
 		return newFutureError(err)
 	}
 
-	fmt.Println("method -> ", method)
-	fmt.Println("json -> ", string(marshalledJSON))
 	// Generate the request and send it along with a channel to respond on.
 	responseChan := make(chan *response, 1)
 	jReq := &jsonRequest{

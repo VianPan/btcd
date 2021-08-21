@@ -704,8 +704,8 @@ type RawTxInput struct {
 // SignRawTransactionCmd defines the signrawtransaction JSON-RPC command.
 type SignRawTransactionCmd struct {
 	RawTx       string
-	Inputs      *[]RawTxInput
 	PrivKeys    *[]string
+	Inputs      *[]RawTxInput
 	Flags       *string `jsonrpcdefault:"\"ALL\""`
 	SigHashType *string `jsonrpcdefault:"\"ALL\""`
 }
