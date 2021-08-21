@@ -703,10 +703,11 @@ type RawTxInput struct {
 
 // SignRawTransactionCmd defines the signrawtransaction JSON-RPC command.
 type SignRawTransactionCmd struct {
-	RawTx    string
-	Inputs   *[]RawTxInput
-	PrivKeys *[]string
-	Flags    *string `jsonrpcdefault:"\"ALL\""`
+	RawTx       string
+	Inputs      *[]RawTxInput
+	PrivKeys    *[]string
+	Flags       *string `jsonrpcdefault:"\"ALL\""`
+	SigHashType *string `jsonrpcdefault:"\"ALL\""`
 }
 
 // NewSignRawTransactionCmd returns a new instance which can be used to issue a
@@ -716,10 +717,11 @@ type SignRawTransactionCmd struct {
 // for optional parameters will use the default value.
 func NewSignRawTransactionCmd(hexEncodedTx string, inputs *[]RawTxInput, privKeys *[]string, flags *string) *SignRawTransactionCmd {
 	return &SignRawTransactionCmd{
-		RawTx:    hexEncodedTx,
-		Inputs:   inputs,
-		PrivKeys: privKeys,
-		Flags:    flags,
+		RawTx:       hexEncodedTx,
+		Inputs:      inputs,
+		PrivKeys:    privKeys,
+		Flags:       flags,
+		SigHashType: flags,
 	}
 }
 
