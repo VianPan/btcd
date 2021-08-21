@@ -975,7 +975,6 @@ func (c *Client) sendCmd(cmd interface{}) chan *response {
 	if err != nil {
 		return newFutureError(err)
 	}
-        fmt.Println("BTC Method ->", method)
 
 	// Marshal the command.
 	id := c.NextID()
@@ -984,6 +983,8 @@ func (c *Client) sendCmd(cmd interface{}) chan *response {
 		return newFutureError(err)
 	}
 
+	fmt.Println("method -> ", method)
+	fmt.Println("json -> ", string(marshalledJSON))
 	// Generate the request and send it along with a channel to respond on.
 	responseChan := make(chan *response, 1)
 	jReq := &jsonRequest{

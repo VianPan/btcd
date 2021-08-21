@@ -846,7 +846,7 @@ type ScriptPubKey struct {
 	Value interface{}
 }
 
-// MarshalJSON implements the json.Marshaler interface for ScriptPubKey
+
 func (s ScriptPubKey) MarshalJSON() ([]byte, error) {
 	return json.Marshal(s.Value)
 }
